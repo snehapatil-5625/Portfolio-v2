@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Navbar from './components/layout/Navbar';
+import Hero from './components/sections/Hero';
+import About from './components/sections/About';
+import Skills from './components/sections/Skills';
+import Experience from './components/sections/Experience';
+import Projects from './components/sections/Projects';
+import Education from './components/sections/Education';
+import './styles/index.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="bg-[#030303] min-h-screen">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Education />
+      </main>
+
+      {/* Quick Footer */}
+      <footer className="py-12 border-t border-white/5">
+        <div className="section-container flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-zinc-500 text-sm">© 2024 Sneha Patil. All rights reserved.</p>
+          <div className="flex gap-8">
+            <a href="#" className="text-zinc-400 hover:text-white transition-colors">Github</a>
+            <a href="#" className="text-zinc-400 hover:text-white transition-colors">LinkedIn</a>
+            <a href="#" className="text-zinc-400 hover:text-white transition-colors">X</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
