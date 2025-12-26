@@ -25,7 +25,7 @@ const Experience: React.FC = () => {
                     <h2 className="text-4xl lg:text-5xl font-bold font-['Outfit'] tracking-tight text-left">
                         Work <span className="text-gradient">Experience</span>
                     </h2>
-                    <div className="w-20 h-1 bg-gradient-to-l from-blue-500 to-purple-500 rounded-full mr-auto"></div>
+                    <div className="w-20 h-1 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-full mr-auto"></div>
                 </div>
 
                 <div className="space-y-12">
@@ -36,27 +36,27 @@ const Experience: React.FC = () => {
                         >
                             {/* Timeline Connector Only on Desktop */}
                             <div className="hidden md:flex md:col-span-3 pt-6 flex-col items-end">
-                                <span className="text-sm font-bold text-zinc-500 tracking-widest uppercase">
+                                <span className="text-sm font-bold text-[var(--text-secondary)] tracking-widest uppercase">
                                     {exp.period}
                                 </span>
-                                <div className="w-12 h-px bg-zinc-800 mt-4 group-hover:w-20 group-hover:bg-blue-500 transition-all duration-500"></div>
+                                <div className="w-12 h-px bg-[var(--border-color)] mt-4 group-hover:w-20 group-hover:bg-[var(--accent-primary)] transition-all duration-500"></div>
                             </div>
 
                             {/* Card */}
-                            <div className="md:col-span-9 p-8 rounded-3xl bg-white/[0.02] border border-white/5 group-hover:border-white/10 group-hover:bg-white/[0.04] transition-all duration-500 text-left">
+                            <div className="md:col-span-9 p-8 rounded-3xl bg-[var(--bg-card)] border border-[var(--border-color)] group-hover:border-[var(--accent-primary)]/20 group-hover:bg-[var(--bg-card)] transition-all duration-500 text-left">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
                                     <div>
-                                        <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                                        <h3 className="text-2xl font-bold text-[var(--text-primary)] group-hover:text-[var(--accent-primary)] transition-colors">
                                             {exp.role}
                                         </h3>
-                                        <p className="text-lg text-blue-500 font-medium">{exp.company}</p>
+                                        <p className="text-lg text-[var(--accent-primary)] font-medium">{exp.company}</p>
                                     </div>
-                                    <span className="md:hidden text-xs font-bold text-zinc-500 tracking-widest uppercase">
+                                    <span className="md:hidden text-xs font-bold text-[var(--text-secondary)] tracking-widest uppercase">
                                         {exp.period}
                                     </span>
                                 </div>
 
-                                <p className="text-zinc-400 leading-relaxed mb-6">
+                                <p className="text-[var(--text-secondary)] leading-relaxed mb-6">
                                     {exp.description}
                                 </p>
 
@@ -64,7 +64,7 @@ const Experience: React.FC = () => {
                                     {exp.tech.map((t) => (
                                         <span
                                             key={t}
-                                            className="px-3 py-1 rounded-full bg-blue-500/5 border border-blue-500/10 text-xs text-blue-400 font-medium"
+                                            className="px-3 py-1 rounded-full bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/10 text-xs text-[var(--accent-primary)] font-medium"
                                         >
                                             {t}
                                         </span>

@@ -1,78 +1,200 @@
-import React from 'react';
+import React, { type SVGProps } from 'react';
+import { motion } from 'framer-motion';
 
-const skillCategories = [
+const IconLogoReact = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        width="1em"
+        height="1em"
+        fill="currentColor"
+        viewBox="0 0 512 512"
+        {...props}
+    >
+        <path d="M410.66 180.72q-7.67-2.62-15.45-4.88 1.29-5.25 2.38-10.56c11.7-56.9 4.05-102.74-22.06-117.83-25-14.48-66 .61-107.36 36.69q-6.1 5.34-11.95 11-3.9-3.76-8-7.36c-43.35-38.58-86.8-54.83-112.88-39.69-25 14.51-32.43 57.6-21.9 111.53q1.58 8 3.55 15.93a320.85 320.85 0 0 0-17.77 5.6C48.46 198.9 16 226.73 16 255.59c0 29.82 34.84 59.72 87.77 77.85q6.44 2.19 13 4.07-2.13 8.49-3.77 17.17c-10 53-2.2 95.07 22.75 109.49 25.77 14.89 69-.41 111.14-37.31q5-4.38 10-9.25 6.32 6.11 13 11.86c40.8 35.18 81.09 49.39 106 34.93 25.75-14.94 34.12-60.14 23.25-115.13q-1.25-6.3-2.88-12.86 4.56-1.35 8.93-2.79c55-18.27 90.83-47.81 90.83-78-.02-29-33.52-57.01-85.36-74.9zm-129-81.08c35.43-30.91 68.55-43.11 83.65-34.39 16.07 9.29 22.32 46.75 12.22 95.88q-1 4.8-2.16 9.57a487.83 487.83 0 0 0-64.18-10.16 481.27 481.27 0 0 0-40.57-50.75q5.38-5.22 11.02-10.15zM157.73 280.25q6.51 12.6 13.61 24.89 7.23 12.54 15.07 24.71a435.28 435.28 0 0 1-44.24-7.13c4.24-13.72 9.46-27.97 15.56-42.47zm0-48.33c-6-14.19-11.08-28.15-15.25-41.63 13.7-3.07 28.3-5.58 43.52-7.48q-7.65 11.94-14.72 24.23t-13.58 24.88zm10.9 24.17q9.48-19.77 20.42-38.78 10.93-19 23.27-37.13c14.28-1.08 28.92-1.65 43.71-1.65s29.52.57 43.79 1.66q12.21 18.09 23.13 37t20.69 38.6Q334 275.63 323 294.73q-10.91 19-23 37.24c-14.25 1-29 1.55-44 1.55s-29.47-.47-43.46-1.38q-12.43-18.19-23.46-37.29t-20.48-38.76zM340.75 305q7.25-12.58 13.92-25.49a440.41 440.41 0 0 1 16.12 42.32 434.44 434.44 0 0 1-44.79 7.65q7.62-12.09 14.75-24.48zm13.72-73.07q-6.64-12.65-13.81-25-7-12.18-14.59-24.06c15.31 1.94 30 4.52 43.77 7.67a439.89 439.89 0 0 1-15.37 41.39zm-98.24-107.45a439.75 439.75 0 0 1 28.25 34.18q-28.35-1.35-56.74 0c9.33-12.34 18.88-23.79 28.49-34.18zM145.66 65.86c16.06-9.32 51.57 4 89 37.27 2.39 2.13 4.8 4.36 7.2 6.67A491.37 491.37 0 0 0 201 160.51a499.12 499.12 0 0 0-64.06 10q-1.83-7.36-3.3-14.82c-9.05-46.23-3.06-81.08 12.02-89.83zm-23.41 251.85q-6-1.71-11.85-3.71c-23.4-8-42.73-18.44-56-29.81-11.88-10.19-17.9-20.36-17.9-28.6 0-17.51 26.06-39.85 69.52-55q8.19-2.85 16.52-5.21a493.54 493.54 0 0 0 23.4 60.75 502.46 502.46 0 0 0-23.69 61.58zm111.13 93.67c-18.63 16.32-37.29 27.89-53.74 33.72-14.78 5.23-26.55 5.38-33.66 1.27-15.14-8.75-21.44-42.54-12.85-87.86q1.53-8 3.5-16a480.85 480.85 0 0 0 64.69 9.39 501.2 501.2 0 0 0 41.2 51c-2.98 2.93-6.03 5.75-9.14 8.48zm23.42-23.22c-9.72-10.51-19.42-22.14-28.88-34.64q13.79.54 28.08.54c9.78 0 19.46-.21 29-.64a439.33 439.33 0 0 1-28.2 34.74zm124.52 28.59c-2.86 15.44-8.61 25.74-15.72 29.86-15.13 8.78-47.48-2.63-82.36-32.72-4-3.44-8-7.13-12.07-11a484.54 484.54 0 0 0 40.23-51.2 477.84 477.84 0 0 0 65-10.05q1.47 5.94 2.6 11.64c4.81 24.3 5.5 46.28 2.32 63.47zm17.4-102.64c-2.62.87-5.32 1.71-8.06 2.53a483.26 483.26 0 0 0-24.31-60.94 481.52 481.52 0 0 0 23.36-60.06c4.91 1.43 9.68 2.93 14.27 4.52 44.42 15.32 71.52 38 71.52 55.43 0 18.6-29.27 42.74-76.78 58.52z" />
+        <path d="M256 298.55a43 43 0 1 0-42.86-43 42.91 42.91 0 0 0 42.86 43z" />
+    </svg>
+)
+
+const IconTypescript = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        width="1em"
+        height="1em"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        {...props}
+    >
+        <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z" />
+    </svg>
+)
+
+const IconNextjs = (props: SVGProps<SVGSVGElement>) => (
+    <svg width="1em" height="1em" fill="none" viewBox="0 0 15 15" {...props}>
+        <path
+            fill="currentColor"
+            fillRule="evenodd"
+            d="M0 7.5a7.5 7.5 0 1 1 11.697 6.216L4.907 4.21A.5.5 0 0 0 4 4.5V12h1V6.06l5.83 8.162A7.5 7.5 0 0 1 0 7.5zM10 10V4h1v6h-1z"
+            clipRule="evenodd"
+        />
+    </svg>
+)
+
+const IconTailwindCssFill = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        width="1em"
+        height="1em"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        {...props}
+    >
+        <path d="M12 4.86c-3.174 0-5.157 1.587-5.95 4.76 1.19-1.587 2.578-2.182 4.165-1.785.905.226 1.552.883 2.268 1.61C13.651 10.63 15 12 17.95 12c3.173 0 5.156-1.587 5.95-4.76-1.19 1.587-2.579 2.182-4.165 1.785-.906-.226-1.552-.883-2.27-1.61C16.3 6.23 14.95 4.86 12 4.86zM6.05 12C2.876 12 .893 13.587.1 16.76c1.19-1.587 2.578-2.182 4.165-1.785.905.226 1.552.883 2.269 1.61C7.7 17.77 9.05 19.14 12 19.14c3.173 0 5.156-1.587 5.95-4.76-1.19 1.587-2.579 2.182-4.165 1.785-.906-.226-1.552-.883-2.27-1.61C10.35 13.37 9 12 6.05 12z" />
+    </svg>
+)
+
+const IconJavascript = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        width="1em"
+        height="1em"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        {...props}
+    >
+        <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z" />
+    </svg>
+)
+const IconGit = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        width="1em"
+        height="1em"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+        {...props}
+    >
+        <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.03 1.03 0 0 0 0-1.457" />
+    </svg>
+)
+
+const IconShopify = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        width="1em"
+        height="1em"
+        fill="currentColor"
+        viewBox="0 0 448 512"
+        {...props}
+    >
+        <path d="M388.32 104.1a4.66 4.66 0 0 0-4.4-4c-2 0-37.23-.8-37.23-.8s-21.61-20.82-29.62-28.83V503.2L442.76 472s-54.04-365.5-54.44-367.9zm-99.67-33.63a116.67 116.67 0 0 0-7.21-17.61C271 32.85 255.42 22 237 22a15 15 0 0 0-4 .4c-.4-.8-1.2-1.2-1.6-2-8-8.77-18.4-12.77-30.82-12.4-24 .8-48 18-67.25 48.83-13.61 21.62-24 48.84-26.82 70.06-27.62 8.4-46.83 14.41-47.23 14.81-14 4.4-14.41 4.8-16 18-1.2 10-38 291.82-38 291.82L307.86 504V65.67a41.66 41.66 0 0 0-4.4.4s-5.6 1.6-14.81 4.4zm-55.24 17.22c-16 4.8-33.63 10.4-50.84 15.61 4.8-18.82 14.41-37.63 25.62-50 4.4-4.4 10.41-9.61 17.21-12.81 6.81 14.37 8.41 33.99 8.01 47.2zm-32.83-63.25A27.49 27.49 0 0 1 215 28c-6.4 3.2-12.81 8.41-18.81 14.41-15.21 16.42-26.82 42-31.62 66.45-14.42 4.41-28.83 8.81-42 12.81 8.76-38.39 41.18-96.43 78.01-97.23zm-46.43 220.17c1.6 25.61 69.25 31.22 73.25 91.66 2.8 47.64-25.22 80.06-65.65 82.47-48.83 3.2-75.65-25.62-75.65-25.62l10.4-44s26.82 20.42 48.44 18.82c14-.8 19.22-12.41 18.81-20.42-2-33.62-57.24-31.62-60.84-86.86-3.2-46.44 27.22-93.27 94.47-97.68 26-1.6 39.23 4.81 39.23 4.81l-15.21 57.6s-17.21-8-37.63-6.4c-29.62 2.01-30.02 20.81-29.62 25.62zm95.27-161.73c0-12-1.6-29.22-7.21-43.63 18.42 3.6 27.22 24 31.23 36.43q-10.81 3-24.02 7.2z" />
+    </svg>
+)
+const IconShadcnui = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        width="1em"
+        height="1em"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        {...props}
+    >
+        <path d="M22.219 11.784 11.784 22.219a1.045 1.045 0 0 0 1.476 1.476L23.695 13.26a1.045 1.045 0 0 0-1.476-1.476zM20.132.305.305 20.132a1.045 1.045 0 0 0 1.476 1.476L21.608 1.781A1.045 1.045 0 0 0 20.132.305z" />
+    </svg>
+)
+const IconBxlHtml5 = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        width="1em"
+        height="1em"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        {...props}
+    >
+        <path d="M4.136 3.012h15.729l-1.431 16.15-6.451 1.826-6.414-1.826-1.433-16.15zm5.266 7.302-.173-2.035 7.533.002.173-1.963-9.87-.002.522 5.998h6.835l-.243 2.566-2.179.602-2.214-.605-.141-1.58H7.691l.247 3.123L12 17.506l4.028-1.08.558-6.111H9.402v-.001z" />
+    </svg>
+)
+
+const IconBxlCss3 = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        width="1em"
+        height="1em"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        {...props}
+    >
+        <path d="M4.192 3.143h15.615l-1.42 16.034-6.404 1.812-6.369-1.813L4.192 3.143zM16.9 6.424l-9.8-.002.158 1.949 7.529.002-.189 2.02H9.66l.179 1.913h4.597l-.272 2.62-2.164.598-2.197-.603-.141-1.569h-1.94l.216 2.867L12 17.484l3.995-1.137.905-9.923z" />
+    </svg>
+)
+
+const IconBaseui = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        width="1em"
+        height="1em"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        {...props}
+    >
+        <path d="M0 7.97v4.958c0 1.867 1.302 3.101 3 3.101.826 0 1.562-.316 2.094-.87v.736H6.27V7.97H5.082v4.888c0 1.257-.85 2.106-1.947 2.106-1.11 0-1.946-.827-1.946-2.106V7.971H0zm7.44 0v7.925h1.13v-.725c.521.532 1.257.86 2.06.86a3.006 3.006 0 0 0 3.034-3.01 3.01 3.01 0 0 0-3.033-3.024 2.86 2.86 0 0 0-2.049.861V7.971H7.439zm9.869 2.038c-1.687 0-2.965 1.37-2.965 3 0 1.72 1.334 3.01 3.066 3.01 1.053 0 1.913-.463 2.49-1.233l-.826-.611c-.43.577-.996.847-1.664.847-.973 0-1.753-.7-1.912-1.64h4.697v-.373c0-1.72-1.222-3-2.886-3zm6.295.068c-.634 0-1.098.294-1.381.758v-.713h-1.131v5.774h1.142V12.61c0-.894.544-1.47 1.291-1.47H24v-1.065h-.396zm-6.319.928c.85 0 1.564.588 1.756 1.47H15.52c.203-.882.916-1.47 1.765-1.47zm-6.732.012c1.086 0 1.98.883 1.98 2.004a1.993 1.993 0 0 1-1.98 2.001A1.989 1.989 0 0 1 8.56 13.02a1.99 1.99 0 0 1 1.992-2.004z" />
+    </svg>
+)
+
+const technologies = [
+    { name: 'React', icon: <IconLogoReact /> },
+    { name: 'TypeScript', icon: <IconTypescript /> },
+    { name: 'Next.js', icon: <IconNextjs /> },
     {
-        title: "Frontend Development",
-        skills: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion", "Redux"],
-        icon: (
-            <svg className="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-        )
+        name: 'JavaScript',
+        icon: <IconJavascript />,
     },
-    {
-        title: "Backend & Database",
-        skills: ["Node.js", "Express", "MongoDB", "PostgreSQL", "Firebase", "GraphQL"],
-        icon: (
-            <svg className="w-6 h-6 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-            </svg>
-        )
-    },
-    {
-        title: "Tools & DevOps",
-        skills: ["Git", "Docker", "AWS", "Vercel", "Linux", "VS Code"],
-        icon: (
-            <svg className="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-        )
-    }
+    { name: 'Tailwind CSS', icon: <IconTailwindCssFill /> },
+    { name: 'Baseui', icon: <IconBaseui /> },
+    { name: 'Shopify', icon: <IconShopify /> },
+    { name: 'Shadcn', icon: <IconShadcnui /> },
+    { name: 'Git', icon: <IconGit /> },
+    { name: 'HTML', icon: <IconBxlHtml5 /> },
+    { name: 'CSS', icon: <IconBxlCss3 /> },
 ];
 
 const Skills: React.FC = () => {
     return (
-        <section id="skills" className="py-24 relative overflow-hidden">
+        <section id="skills" className="py-24 relative overflow-hidden bg-[var(--bg-color)]">
+            {/* Ambient Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-[var(--accent-primary)]/5 blur-[120px] rounded-full -z-10"></div>
+
             <div className="section-container">
-                <div className="mb-16 space-y-4">
-                    <h2 className="text-4xl lg:text-5xl font-bold font-['Outfit'] tracking-tight">
-                        My <span className="text-gradient">Skills</span>
+                <div className="mb-20 text-center animate-[fadeInUp_0.8s_ease_out_forwards]">
+                    <h2 className="text-4xl lg:text-5xl font-bold font-['Outfit'] tracking-tight mb-6">
+                        Technical <span className="text-gradient">Stack</span>
                     </h2>
-                    <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-                    <p className="text-zinc-400 max-w-xl text-lg">
-                        A comprehensive set of tools and technologies I use to bring ideas to life.
+                    <div className="w-24 h-1 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-full mx-auto mb-8"></div>
+                    <p className="text-[var(--text-secondary)] max-w-2xl mx-auto text-lg pt-2 leading-relaxed">
+                        I utilize a modern specialized toolset to build high-performance,
+                        scalable web applications with exceptional user experiences.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {skillCategories.map((category, idx) => (
-                        <div
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                    {technologies.map((tech, idx) => (
+                        <motion.div
                             key={idx}
-                            className="group p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-blue-500/20 transition-all duration-500 relative overflow-hidden"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: idx * 0.05 }}
+                            whileHover={{ y: -5 }}
+                            className="group relative p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-primary)]/30 flex flex-col items-center justify-center gap-6 transition-all duration-300 overflow-hidden"
                         >
-                            {/* Card Glow Effect */}
-                            <div className="absolute -right-10 -top-10 w-32 h-32 bg-blue-500/5 blur-3xl group-hover:bg-blue-500/10 transition-colors"></div>
+                            {/* Hover Reveal Inner Glow */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent-primary)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
-                            <div className="mb-6 p-4 rounded-2xl bg-white/[0.03] w-fit">
-                                {category.icon}
+                            {/* Icon Container using text color */}
+                            <div
+                                className="w-16 h-16 flex items-center justify-center transition-all duration-500 group-hover:scale-110 text-[var(--text-secondary)] group-hover:text-[var(--accent-primary)]"
+                            >
+                                <div className="text-4xl">
+                                    {tech.icon}
+                                </div>
                             </div>
 
-                            <h3 className="text-xl font-bold mb-6 text-white group-hover:text-blue-400 transition-colors">
-                                {category.title}
-                            </h3>
+                            <span className="text-sm font-bold tracking-widest text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] uppercase transition-colors">
+                                {tech.name}
+                            </span>
 
-                            <div className="flex flex-wrap gap-2">
-                                {category.skills.map((skill) => (
-                                    <span
-                                        key={skill}
-                                        className="px-4 py-2 rounded-xl bg-white/[0.03] border border-white/5 text-sm text-zinc-400 hover:text-white hover:border-white/10 transition-all cursor-default"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
+                            {/* Corner Accent */}
+                            <div className="absolute top-0 right-0 w-8 h-8 bg-[var(--accent-primary)]/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
