@@ -2,19 +2,31 @@
 
 @layer theme {
     :root {
-        --bg-color: #030303;
-        --bg-card: #0a0a0c;
+        --bg-color: #020617;
+        --bg-card: #0f172a;
         --text-primary: #ffffff;
-        --text-secondary: #a1a1aa;
-        --accent-primary: #3b82f6;
-        --accent-secondary: #8b5cf6;
-        --accent-glow: rgba(59, 130, 246, 0.5);
+        --text-secondary: #94a3b8;
+        --accent-primary: #10b981;
+        --accent-secondary: #0ea5e9;
+        --accent-glow: rgba(16, 185, 129, 0.4);
+        --border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .light {
+        --bg-color: #f8fafc;
+        --bg-card: #ffffff;
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --accent-primary: #059669;
+        --accent-secondary: #0284c7;
+        --accent-glow: rgba(5, 150, 105, 0.2);
+        --border-color: rgba(0, 0, 0, 0.1);
     }
 }
 
 @layer base {
     body {
-        @apply bg-[#030303] text-zinc-100 font-sans overflow-x-hidden;
+        @apply bg-[var(--bg-color)] text-[var(--text-primary)] font-sans transition-colors duration-300 overflow-x-hidden;
     }
 
     html {
@@ -30,11 +42,11 @@
     }
 
     .glass-effect {
-        @apply bg-[#0a0a0c]/70 backdrop-blur-xl border border-white/10;
+        @apply bg-[var(--bg-card)]/70 backdrop-blur-xl border border-[var(--border-color)];
     }
 
     .text-gradient {
-        @apply bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent;
+        @apply bg-gradient-to-r from-emerald-400 to-sky-500 bg-clip-text text-transparent;
     }
 
     .btn {
@@ -42,7 +54,7 @@
     }
 
     .btn-primary {
-        @apply bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:-translate-y-0.5 hover:shadow-[0_0_20px_#3b82f680];
+        @apply bg-gradient-to-r from-emerald-500 to-sky-600 text-white dark:text-[#020617] font-bold hover:-translate-y-0.5 hover:shadow-[0_0_20px_var(--accent-glow)];
     }
 }
 
