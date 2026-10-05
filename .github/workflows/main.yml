@@ -15,11 +15,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          cache: yarn
       - name: install dependencies
-        run: npm ci
+        run: yarn install
       - name: build application
-        run: npm run build
+        run: yarn build
       - name: upload artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -35,7 +35,7 @@ jobs:
           name: production-build
           path: dist/
       - name: test application
-        run: npm test
+        run: yarn test
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,3 +47,4 @@ jobs:
           path: dist/
       - name: deploy application
         run: echo "application deployed successfully"
+
