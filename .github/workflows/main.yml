@@ -15,12 +15,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: yarn
-          cache-dependency-path: portfolio-v2/yarn.lock
       - name: enable corepack
         run: corepack enable
-      - name: check yarn version
-        run: yarn --version
+      - name: activate yarn
+        working-directory: portfolio-v2
+        run: corepack prepare yarn@4.9.1 --activate
+      - name: check version
+        working-directory: portfolio-v2
+        run: |
+         yarn --version
+         node --version
       - name: install dependencies
         working-directory: portfolio-v2
         run: yarn install
