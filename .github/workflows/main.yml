@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: production-build
-          path: dist/
+          path: portfolio-v2/dist/
 
   test:
     runs-on: ubuntu-latest
