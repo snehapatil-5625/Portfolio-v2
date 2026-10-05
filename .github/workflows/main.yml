@@ -16,9 +16,12 @@ jobs:
         with:
           node-version: 20
           cache: yarn
+          cache-dependency-path: portfolio-v2/yarn.lock
       - name: install dependencies
+        working-directory: portfolio-v2
         run: yarn install
       - name: build application
+        working-directory: portfolio-v2
         run: yarn build
       - name: upload artifacts
         uses: actions/upload-artifact@v4
@@ -33,8 +36,9 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: production-build
-          path: dist/
+          path: portfolio-v2/dist/
       - name: test application
+        working-directory: portfolio-v2
         run: yarn test
 
   deploy:
@@ -44,7 +48,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: production-build
-          path: dist/
+          path: portfolio-v2/dist/
       - name: deploy application
         run: echo "application deployed successfully"
 
