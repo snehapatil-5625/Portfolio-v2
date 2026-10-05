@@ -47,11 +47,10 @@ jobs:
           name: production-build
           path: portfolio-v2/dist/
       - name: test application
-        working-directory: portfolio-v2
         run: yarn test
 
   deploy:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: download artifact
