@@ -28,6 +28,9 @@ jobs:
       - name: install dependencies
         working-directory: portfolio-v2
         run: yarn install
+      - name: Test application
+        working-directory: portfolio-v2
+        run: yarn test
       - name: build application
         working-directory: portfolio-v2
         run: yarn build
@@ -37,20 +40,8 @@ jobs:
           name: production-build
           path: portfolio-v2/dist/
 
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: production-build
-          path: portfolio-v2/dist/
-      - name: test application
-        run: yarn test
-
   deploy:
-    needs: test
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: download artifact
