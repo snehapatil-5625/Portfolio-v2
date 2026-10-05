@@ -38,6 +38,7 @@ jobs:
           path: portfolio-v2/dist/
 
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: download artifacts
@@ -50,6 +51,7 @@ jobs:
         run: yarn test
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: download artifact
