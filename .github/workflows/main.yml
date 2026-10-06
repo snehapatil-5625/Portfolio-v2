@@ -4,9 +4,48 @@ on:
   push:
     branches:
       - main 
+  pull_request:
+    branches:
+      - main
 
-jobs:
-  deploy:
+jobs:  
+  build:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: enable corepack
+        run: corepack enable
+      - name: activate yarn
+        working-directory: portfolio-v2
+        run: corepack prepare yarn@4.9.1 --activate
+      - name: check version
+        working-directory: portfolio-v2
+        run: |
+         yarn --version
+         node --version
+      - name: install dependencies
+        working-directory: portfolio-v2
+        run: yarn install
+      - name: Test application
+        working-directory: portfolio-v2
+        run: echo " project test suceesful"
+      - name: build application
+        working-directory: portfolio-v2
+        run: yarn build
+      - name: upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-build
+          path: portfolio-v2/dist/
+          
+  deploy: 
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: download artifact
@@ -16,4 +55,3 @@ jobs:
           path: portfolio-v2/dist/
       - name: deploy application
         run: echo "application deployed successfully"
-
